@@ -128,6 +128,41 @@ const Blog = () => {
                         The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
                     </p>
                 </details>
+
+
+                <details class="group border-l-4 border-green-500 bg-gray-50 p-6">
+                    <summary class="flex cursor-pointer items-center justify-between">
+                        <h2 class="text-lg font-medium text-gray-900">
+                            React vs Angular vs Vue?
+                        </h2>
+                        <span
+                            class="ml-1.5 flex-shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 flex-shrink-0 transition duration-300 group-open:-rotate-45"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </span>
+                    </summary>
+
+                    <p class="mt-4 leading-relaxed text-gray-700">
+                        React requires solid JavaScript skills, while Vue. js is more oriented to novice developers. Similar to React, Vue. js enables writing with JSX, but the components are written with HTML templates.
+                    </p>
+                    <p>
+                        React is a JavaScript library, whereas Angular is a front-end framework. React uses one-way data binding and virtual DOM, whereas Angular uses two-way data binding and real DOM. Moreover, React is faster than Angular as it has a smaller bundle size.
+                    </p>
+                    <p>
+                        Angular utilizes real DOM, which renders the entire web/app page even when a single component is changed. On the other hand, Vue. js employs Virtual DOM, which only renders the real DOM upon the components that have been changed.
+                    </p>
+                </details>
             </div>
 
         </div>
