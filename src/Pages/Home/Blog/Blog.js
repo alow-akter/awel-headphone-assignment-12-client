@@ -4,7 +4,7 @@ const Blog = () => {
     return (
         <div className='mt-28'>
             <div class="space-y-4 w-10/12 mx-auto">
-                <details class="group border-l-4 border-green-500 bg-gray-50 p-6" open>
+                <details class="group border-l-4 border-[#FFBAA6] bg-gray-50 p-6" open>
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                             What are the different ways to manage a state in a React application?
@@ -69,7 +69,7 @@ const Blog = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-green-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-[#FFBAA6] bg-gray-50 p-6">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                             How does prototypical inheritance work?
@@ -101,7 +101,7 @@ const Blog = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-green-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-[#FFBAA6] bg-gray-50 p-6">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                             What is a unit test? Why should we write unit tests?
@@ -130,7 +130,7 @@ const Blog = () => {
                 </details>
 
 
-                <details class="group border-l-4 border-green-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-[#FFBAA6] bg-gray-50 p-6">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                             React vs Angular vs Vue?

@@ -20,7 +20,7 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-2xl text-[#FB836B] font-extrabold "><span className='text-3xl font-extrabold text-[#E81E28]'>A</span>wel headphone  <img className='w-10 m-2' src="https://png.pngtree.com/png-clipart/20221026/original/pngtree-airpods-3rd-generation-wireless-headphones-png-image_8726654.png" alt="" /></Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-2xl text-[#FB836B] font-extrabold "><span className='text-3xl font-extrabold text-[#E81E28]'>A</span>wel Headphone  <img className='w-10 m-2' src="https://png.pngtree.com/png-clipart/20221026/original/pngtree-airpods-3rd-generation-wireless-headphones-png-image_8726654.png" alt="" /></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
