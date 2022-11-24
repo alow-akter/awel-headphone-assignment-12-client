@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomeSilder = () => {
     return (
-        <div>
+        <section className='mt-6'>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://images.pexels.com/photos/1490844/pexels-photo-1490844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="w-full h-[500px]" alt='' />
@@ -33,7 +33,7 @@ const HomeSilder = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
