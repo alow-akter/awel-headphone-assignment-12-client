@@ -18,16 +18,16 @@ const Footer = () => {
                             <h3 className="tracking-wide uppercase dark:text-gray-50">Product</h3>
                             <ul className="space-y-1">
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Features</a>
+                                    <p rel="noopener noreferrer">Features</p>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Integrations</a>
+                                    <p rel="noopener noreferrer">Integrations</p>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Pricing</a>
+                                    <p rel="noopener noreferrer">Pricing</p>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">FAQ</a>
+                                    <p rel="noopener noreferrer">FAQ</p>
                                 </li>
                             </ul>
                         </div>
