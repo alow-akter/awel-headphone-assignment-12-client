@@ -1,30 +1,45 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 const Singup = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    //const { createUser, upDateUser } = useContext(AuthContext)
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    const { createUser, googleProviderLogin } = useContext(AuthContext)
     const [singupError, setSingupError] = useState('')
 
     const handleSingup = (data) => {
         setSingupError('')
-            // createUser(data.email, data.password)
+        createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 toast.success("User Created successfully")
+                reset()
             })
             .catch(err => {
                 console.error(err)
                 setSingupError(err.message)
             })
     }
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSingIn = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error =>
+                console.error(error)
+            )
+    }
 
     return (
         <div>
-            <div className=' h-[600px]  flex justify-center items-center'>
+            <div className=' h-[600px] p-10  flex justify-center items-center'>
                 <div className='w-96 p-6 rounded-lg bg-slate-300'>
                     <h2 className='text-xl text-center'> Please Sing Up</h2>
                     <form onSubmit={handleSubmit(handleSingup)}>
@@ -69,10 +84,12 @@ const Singup = () => {
                         </div>
                         <input className='btn bg-[#FFBAA6] hover:bg-[#FB836B] w-full mt-6' value="Sing Up" type="submit" />
                         {singupError && <p className='text-red-500'>{singupError}</p>}
+
                     </form>
                     <p className='mt-3 text-xs'>Already have an account<Link className='mx-2 text-primary font-medium' to="/login">Please Login</Link></p>
                     <div className="divider">OR</div>
-                    <button className='w-full btn btn-outline rounded-lg hover:bg-[#FB836B]'>CONTINUE WITH GOOGLE</button>
+                    <button onClick={handleGoogleSingIn} className='w-full btn btn-outline rounded-lg hover:bg-[#FB836B]'>GOOGLE</button>
+
                 </div>
             </div>
         </div>
