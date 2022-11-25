@@ -1,33 +1,80 @@
 import React from 'react';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-
 const Singup = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    //const { createUser, upDateUser } = useContext(AuthContext)
+    const [singupError, setSingupError] = useState('')
+
+    const handleSingup = (data) => {
+        setSingupError('')
+            // createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success("User Created successfully")
+            })
+            .catch(err => {
+                console.error(err)
+                setSingupError(err.message)
+            })
+    }
+
     return (
         <div>
-            <section className="p-6 dark:text-gray-100">
-                <form novalidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-900 ng-untouched ng-pristine ng-valid">
-                    <h2 className="w-full text-3xl font-bold leading-tight">Please Sing Up</h2>
-                    <div>
-                        <label for="name" className="block mb-1 ml-1">Name</label>
-                        <input id="name" type="text" placeholder="Your name" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 dark:bg-gray-800" />
-                    </div>
-                    <div>
-                        <label for="email" className="block mb-1 ml-1">Email</label>
-                        <input id="email" name='email' type="email" placeholder="Your Email" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 dark:bg-gray-800" />
-                    </div>
-                    <div>
-                        <label for="passwor" className="block mb-1 ml-1">Password</label>
-                        <input id="name" name='password' type="password" placeholder="Your Password" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 dark:bg-gray-800" />
-                    </div>
-                    <div>
-                        <button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 dark:bg-violet-400 focus:ring-violet-400 hover:ring-violet-400 dark:text-gray-900">Submit</button>
-                    </div>
+            <div className=' h-[600px]  flex justify-center items-center'>
+                <div className='w-96 p-6 rounded-lg bg-slate-300'>
+                    <h2 className='text-xl text-center'> Please Sing Up</h2>
+                    <form onSubmit={handleSubmit(handleSingup)}>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" {...register("name", {
+                                required: 'Name is required'
+                            })}
+                                className="input input-bordered w-full" />
+                            {
+                                errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email"  {...register("email", {
+                                required: "email is required"
+                            }
+                            )}
+                                className="input input-bordered w-full" />
+                            {
+                                errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password"  {...register("password", {
+                                required: "Password is required ",
+                                minLength: { value: 6, message: 'Password must be 6 character' },
+                                pattern: {
+                                    value: /(?=.*[A-Z])(?=.*[0-9])/
+                                    , message: 'Password must have uppercase special character '
+                                }
+                            })}
+                                className="input input-bordered w-full max-w-xs" />
+                            {
+                                errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                        </div>
+                        <input className='btn bg-[#FFBAA6] hover:bg-[#FB836B] w-full mt-6' value="Sing Up" type="submit" />
+                        {singupError && <p className='text-red-500'>{singupError}</p>}
+                    </form>
                     <p className='mt-3 text-xs'>Already have an account<Link className='mx-2 text-primary font-medium' to="/login">Please Login</Link></p>
                     <div className="divider">OR</div>
-                    <button className='w-full btn btn-outline rounded-lg'>CONTINUE WITH GOOGLE</button>
-                </form>
-
-            </section>
+                    <button className='w-full btn btn-outline rounded-lg hover:bg-[#FB836B]'>CONTINUE WITH GOOGLE</button>
+                </div>
+            </div>
         </div>
     );
 };
