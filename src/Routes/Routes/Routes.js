@@ -3,9 +3,10 @@ import Main from "../../Layout/Main"
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage"
 import AllCategori from "../../Pages/Home/AllCategori/AllCategori"
 import Blog from "../../Pages/Home/Blog/Blog"
-import Home from "../../Pages/Home/Home/Home"
+import Home from "../../Pages/Home/DataInfo/Home"
 import Login from "../../Pages/Login/Login"
 import Singup from "../../Pages/Singup/Singup"
+
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
                 element: <AllCategori></AllCategori>
 
             },
+
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>

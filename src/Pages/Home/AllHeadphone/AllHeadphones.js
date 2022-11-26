@@ -19,6 +19,7 @@ const AllHeadphones = () => {
                     ></Headphones>)
                 }
             </div>
+
         </div>
     );
 };

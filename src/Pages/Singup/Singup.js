@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 const Singup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
-    const { createUser, googleProviderLogin } = useContext(AuthContext)
+    const { createUser, googleProviderLogin, } = useContext(AuthContext)
     const [singupError, setSingupError] = useState('')
 
     const handleSingup = (data) => {
         setSingupError('')
-        createUser(data.email, data.password)
+        createUser(data.name, data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -23,6 +23,7 @@ const Singup = () => {
                 console.error(err)
                 setSingupError(err.message)
             })
+
     }
     const googleProvider = new GoogleAuthProvider()
 

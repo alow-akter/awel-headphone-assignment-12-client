@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
+import BookingModal from '../../BookModal/BookingModal';
+import Loading from '../../Loading/Loading';
 import Category from './Category';
 
 const AllCategori = () => {
-
+    const [bookings, setBookings] = useState(null)
     const data = useLoaderData()
+    const { loading } = useContext(AuthContext)
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
-        <div className='grid lg:grid-cols-3 gap-6 mx-auto'>
+        <section>
+            <div className='grid lg:grid-cols-3 gap-6 mx-auto'>
+                {
+                    data.map(category => <Category key={category._id} category={category}
+                        setBookings={setBookings}
+                    ></Category>)
+                }
+            </div>
             {
-                data.map(category => <Category key={category._id} category={category}></Category>)
-            }
-        </div>
-    );
+                bookings &&
+                <BookingModal bookings={bookings}></BookingModal>}
+        </section>
+
+    )
 };
 
 export default AllCategori;
