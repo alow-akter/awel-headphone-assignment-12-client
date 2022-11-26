@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Headphones = ({ headphone }) => {
-    const { coverImg, title, items, price } = headphone
+    const { coverImg, title, items, price, productsId } = headphone;
+
     return (
         <div className='mt-28'>
-            <p class="relative block border border-gray-100">
+            <p class="relative block border border-gray-100  shadow-md shadow-slate-400">
                 <button
                     type="button"
                     class="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -42,12 +44,16 @@ const Headphones = ({ headphone }) => {
                     <p class="mt-2 text-sm text-gray-700">price: ${price}</p>
                     <p class="mt-2 text-sm">Items: {items}</p>
 
-                    <button
-                        type="button"
-                        class="mt-4 block w-full rounded-sm bg-[#FB836B] p-4 text-lg font-semibold"
-                    >
-                        See More
-                    </button>
+
+                    <Link to={`/allCategory/${productsId}`}>
+                        <button
+                            type="button"
+                            class="mt-4 block w-full rounded-sm bg-[#FB836B] p-4 text-lg font-semibold"
+                        >
+                            See More
+                        </button>
+                    </Link>
+
                 </div>
             </p>
 

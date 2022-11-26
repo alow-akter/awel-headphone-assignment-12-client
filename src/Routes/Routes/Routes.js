@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../Layout/Main"
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage"
+import AllCategori from "../../Pages/Home/AllCategori/AllCategori"
 import Blog from "../../Pages/Home/Blog/Blog"
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login"
@@ -26,6 +27,12 @@ export const router = createBrowserRouter([
             {
                 path: '/singup',
                 element: <Singup></Singup>
+            },
+            {
+                path: '/allCategory/:id',
+                loader: ({ params }) => fetch(`http://localhost:5001/categoryOptions/${params.id}`),
+                element: <AllCategori></AllCategori>
+
             },
             {
                 path: '*',

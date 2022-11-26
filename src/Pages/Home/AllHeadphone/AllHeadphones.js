@@ -11,7 +11,7 @@ const AllHeadphones = () => {
     }, [])
     return (
         <div>
-            <div className=' grid grid-cols-3 gap-6'>
+            <div className=' grid lg:grid-cols-3 gap-6'>
                 {
                     allHeadphones.map(headphone => <Headphones
                         key={headphone._id}
