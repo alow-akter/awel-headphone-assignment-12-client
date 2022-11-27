@@ -7,16 +7,23 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 const Singup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
-    const { createUser, googleProviderLogin, } = useContext(AuthContext)
+    const { createUser, googleProviderLogin, upDateUser } = useContext(AuthContext)
     const [singupError, setSingupError] = useState('')
 
     const handleSingup = (data) => {
         setSingupError('')
-        createUser(data.name, data.email, data.password)
+        createUser(data.email, data.password, data.name)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                const userInfo = {
+                    displayName: data.name
+                }
+                upDateUser(userInfo)
+                    .then(() => { })
+                    .catch(err => console.error(err))
                 toast.success("User Created successfully")
+
                 reset()
             })
             .catch(err => {

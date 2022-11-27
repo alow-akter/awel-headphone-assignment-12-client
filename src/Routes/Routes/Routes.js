@@ -5,6 +5,7 @@ import AllCategori from "../../Pages/Home/AllCategori/AllCategori"
 import Blog from "../../Pages/Home/Blog/Blog"
 import Home from "../../Pages/Home/DataInfo/Home"
 import Login from "../../Pages/Login/Login"
+import MyOrders from "../../Pages/MyOrders/MyOrders"
 import Singup from "../../Pages/Singup/Singup"
 
 
@@ -35,7 +36,10 @@ export const router = createBrowserRouter([
                 element: <AllCategori></AllCategori>
 
             },
-
+            {
+                path: '/myOrders',
+                element: <MyOrders></MyOrders>
+            },
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>

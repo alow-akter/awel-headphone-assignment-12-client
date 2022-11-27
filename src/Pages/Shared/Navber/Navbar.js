@@ -15,7 +15,7 @@ const Navbar = () => {
 
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-
+        <li><Link to='/myOrders'>MyOrders</Link></li>
 
         {
             user?.uid ?
@@ -25,7 +25,7 @@ const Navbar = () => {
                 </>
                 : <li><Link to='/login'>Login</Link></li>
         }
-
+        <li><Link to='/singUp'>Sing Up</Link></li>
     </React.Fragment>
     return (
         <div>
