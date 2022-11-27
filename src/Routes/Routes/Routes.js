@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
+import DeshBoradLayout from "../../Pages/DashBorad/ DeshBoradLayout"
 import Main from "../../Layout/Main"
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage"
 import AllCategori from "../../Pages/Home/AllCategori/AllCategori"
@@ -7,6 +8,10 @@ import Home from "../../Pages/Home/DataInfo/Home"
 import Login from "../../Pages/Login/Login"
 import MyOrders from "../../Pages/MyOrders/MyOrders"
 import Singup from "../../Pages/Singup/Singup"
+import AddProduct from "../../Pages/DashBorad/DeshBorad/AddProduct/AddProduct"
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes"
+import DeshBorad from "../../Pages/DashBorad/DeshBorad/DeshBorad"
+
 
 
 export const router = createBrowserRouter([
@@ -40,10 +45,27 @@ export const router = createBrowserRouter([
                 path: '/myOrders',
                 element: <MyOrders></MyOrders>
             },
+
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
             }
         ]
-    }
+    },
+    {
+        path: '/deshBorad',
+        element: <PrivetRoutes><DeshBoradLayout></DeshBoradLayout></PrivetRoutes>,
+        children: [
+            {
+                path: '/deshBorad',
+                element: <DeshBorad></DeshBorad>
+            },
+
+            {
+                path: '/deshBorad/addProduct',
+                element: <AddProduct></AddProduct>
+            }
+        ]
+    },
+
 ])

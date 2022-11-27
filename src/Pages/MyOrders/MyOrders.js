@@ -14,11 +14,11 @@ const MyOrders = () => {
         <div>
 
             <div>
-                <h2 className="text-3xl mb-3">
-                    My Appointments
+                <h2 className="text-3xl text-center">
+                    My Orders
                 </h2>
                 <div className="overflow-x-auto  ">
-                    <table className="table w-10/12 mx-auto ">
+                    <table className="table w-10/12 mx-auto mt-4 ">
                         <thead>
                             <tr>
                                 <th>Serial</th>
