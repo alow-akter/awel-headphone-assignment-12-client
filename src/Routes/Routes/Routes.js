@@ -10,7 +10,8 @@ import MyOrders from "../../Pages/MyOrders/MyOrders"
 import Singup from "../../Pages/Singup/Singup"
 import AddProduct from "../../Pages/DashBorad/DeshBorad/AddProduct/AddProduct"
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes"
-import DeshBorad from "../../Pages/DashBorad/DeshBorad/DeshBorad"
+import MyProduct from "../../Pages/DashBorad/DeshBorad/MyProduct/MyProduct"
+
 
 
 
@@ -37,13 +38,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/allCategory/:id',
-                loader: ({ params }) => fetch(`http://localhost:5001/categoryOptions/${params.id}`),
+                loader: ({ params }) => fetch(`https://awel-headphone-server.vercel.app/categoryOptions/${params.id}`),
                 element: <AllCategori></AllCategori>
 
-            },
-            {
-                path: '/myOrders',
-                element: <MyOrders></MyOrders>
             },
 
             {
@@ -56,9 +53,14 @@ export const router = createBrowserRouter([
         path: '/deshBorad',
         element: <PrivetRoutes><DeshBoradLayout></DeshBoradLayout></PrivetRoutes>,
         children: [
+
             {
-                path: '/deshBorad',
-                element: <DeshBorad></DeshBorad>
+                path: '/deshBorad/myProduct',
+                element: <MyProduct></MyProduct>
+            },
+            {
+                path: '/deshBorad/myOrders',
+                element: <MyOrders></MyOrders>
             },
 
             {

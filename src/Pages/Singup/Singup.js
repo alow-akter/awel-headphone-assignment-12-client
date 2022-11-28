@@ -12,15 +12,17 @@ const Singup = () => {
 
     const handleSingup = (data) => {
         setSingupError('')
-        createUser(data.email, data.password, data.name)
+        createUser(data.email, data.password, data.name, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
                 const userInfo = {
                     displayName: data.name
                 }
                 upDateUser(userInfo)
-                    .then(() => { })
+                    .then(() => { handleUser(data.name, data.email, data.role) })
+
                     .catch(err => console.error(err))
                 toast.success("User Created successfully")
 
@@ -31,7 +33,28 @@ const Singup = () => {
                 setSingupError(err.message)
             })
 
+
     }
+    const handleUser = (name, email, role) => {
+        const userInfo = {
+            name,
+            email,
+            role
+        }
+        console.log(userInfo);
+        fetch('https://awel-headphone-server.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error))
+    }
+
+
     const googleProvider = new GoogleAuthProvider()
 
     const handleGoogleSingIn = () => {
@@ -51,7 +74,15 @@ const Singup = () => {
                 <div className='w-96 p-6 rounded-lg bg-slate-300'>
                     <h2 className='text-xl text-center'> Please Sing Up</h2>
                     <form onSubmit={handleSubmit(handleSingup)}>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full max-w-xs mt-2">
+                            <select  {...register("role", {
+                                required: 'role is required'
+                            })}
+                                className="select select-bordered w-full max-w-xs">
+                                <option disabled selected>Role</option>
+                                <option>Buyer</option>
+                                <option>Seller</option>
+                            </select>
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>

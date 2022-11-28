@@ -8,7 +8,7 @@ const DeshBoradLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="drawer drawer-mobile h-96">
+            <div className="drawer drawer-mobile ">
                 <input
                     id="dashboard-drawer"
                     type="checkbox"
@@ -22,15 +22,15 @@ const DeshBoradLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80  text-base-content">
                         {/*  <!-- Sidebar content here --> */}
+
+                        <li className='bg-slate-200 font-bold'><Link to='/deshBorad/myOrders'>MyOrders</Link></li>
                         <li className="bg-slate-200 text-sm font-bold uppercase">
-                            <Link to='/deshBorad'>deshBorad</Link>
+                            <Link to='/deshBorad/myProduct'>My Product</Link>
                         </li>
                         <li className="bg-slate-200 text-sm font-bold uppercase">
                             <Link to='/deshBorad/addProduct'>Add Product</Link>
                         </li>
-                        <li className="bg-slate-200 text-sm font-bold uppercase">
-                            <Link>My Orders</Link>
-                        </li>
+
                         <li className="bg-slate-200 text-sm font-bold uppercase">
                             <Link>Wishlist</Link>
                         </li>

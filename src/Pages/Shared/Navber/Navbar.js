@@ -13,20 +13,20 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
 
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/myOrders'>MyOrders</Link></li>
+        <li className='hover:text-[#f5445f] bold'><Link to='/'>Home</Link></li>
+        <li className='hover:text-[#f5445f] bold'><Link to='/blog'>Blog</Link></li>
+
 
         {
             user?.uid ?
                 <>
-                    <li><Link to='/deshBorad'>DeshBorad</Link></li>
-                    <li><button onClick={handleLogout}>Sing Out</button></li>
+                    <li className='hover:text-[#f5445f] bold'><Link to='/deshBorad'>DeshBorad</Link></li>
+                    <li className='hover:text-[#f5445f] bold'><button onClick={handleLogout}>Sing Out</button></li>
                 </>
-                : <li><Link to='/login'>Login</Link></li>
+                : <li className='hover:text-[#f5445f] bold'><Link to='/login'>Login</Link></li>
 
         }
-        <li><Link to='/singUp'>Sing Up</Link></li>
+        <li><Link to='/singUp'>SingUp</Link></li>
     </React.Fragment>
     return (
         <div>

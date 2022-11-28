@@ -26,7 +26,7 @@ const BookingModal = ({ bookings, setBookings }) => {
 
         }
 
-        fetch('http://localhost:5001/myOrders', {
+        fetch('https://awel-headphone-server.vercel.app/myOrders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

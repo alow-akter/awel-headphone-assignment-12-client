@@ -5,7 +5,7 @@ const AllHeadphones = () => {
     const [allHeadphones, setAllHeadphones] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5001/headphonesOptions')
+        fetch('https://awel-headphone-server.vercel.app/headphonesOptions')
             .then(res => res.json())
             .then(data => setAllHeadphones(data))
     }, [])

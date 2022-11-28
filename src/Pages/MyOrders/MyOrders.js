@@ -5,7 +5,7 @@ const MyOrders = () => {
     const [myAllOrders, setMyAllOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5001/myAllOrders')
+        fetch('https://awel-headphone-server.vercel.app/myAllOrders')
             .then(res => res.json())
             .then(data => setMyAllOrders(data))
     }, [])

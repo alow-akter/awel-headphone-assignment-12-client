@@ -48,7 +48,7 @@ const Headphones = ({ headphone }) => {
                     <Link to={`/allCategory/${productsId}`}>
                         <button
                             type="button"
-                            class="mt-4 block w-full rounded-sm bg-[#FB836B] p-4 text-lg font-semibold"
+                            class="mt-4 block w-full rounded-sm bg-[#FB836B] hover:bg-[#f24b29] p-4 text-lg font-semibold"
                         >
                             See More
                         </button>
