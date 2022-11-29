@@ -3,12 +3,22 @@ import React, { useContext } from 'react';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import UseToken from '../../UseToken/UseToken';
 const Singup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const { createUser, googleProviderLogin, upDateUser } = useContext(AuthContext)
     const [singupError, setSingupError] = useState('')
+
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = UseToken(createdUserEmail)
+    const navigate = useNavigate()
+    if (token) {
+
+        navigate('/')
+
+    }
 
     const handleSingup = (data) => {
         setSingupError('')
@@ -50,9 +60,13 @@ const Singup = () => {
             body: JSON.stringify(userInfo)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                setCreatedUserEmail(email)
+
+            })
             .catch(error => console.error(error))
     }
+
 
 
     const googleProvider = new GoogleAuthProvider()
