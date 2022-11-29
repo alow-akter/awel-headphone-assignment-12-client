@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+
 import Navbar from '../Shared/Navber/Navbar';
 
 
 
 const DeshBoradLayout = () => {
-    const [allUser, setAllUser] = useState()
-    // useEffect(() => {
-    //     fetch('http://localhost:5001/allUsers', {
-    //         headers: {
-    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //             .then(res => res.json())
-    //             .then(data => setAllUser(data))
-    //     })
-    // }, [])
+
     return (
         <div>
             <Navbar></Navbar>
@@ -32,6 +24,7 @@ const DeshBoradLayout = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80  text-base-content">
                         {/*  <!-- Sidebar content here --> */}
+
                         <li className="bg-slate-200 text-sm font-bold uppercase">
                             <Link to='/deshBorad/myOrders'>My Orders</Link>
                         </li>
