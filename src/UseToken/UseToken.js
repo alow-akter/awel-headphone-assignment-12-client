@@ -7,7 +7,7 @@ const UseToken = email => {
 
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5001/jwt?email=${email}`, {
+            fetch(`https://awel-headphone-server.vercel.app/jwt?email=${email}`, {
             })
                 .then(res => res.json())
                 .then(data => {
