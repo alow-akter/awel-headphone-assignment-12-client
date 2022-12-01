@@ -11,6 +11,8 @@ import Singup from "../../Pages/Singup/Singup"
 import AddProduct from "../../Pages/DashBorad/DeshBorad/AddProduct/AddProduct"
 import PrivetRoutes from "../PrivetRoutes/PrivetRoutes"
 import MyProduct from "../../Pages/DashBorad/DeshBorad/MyProduct/MyProduct"
+import AllSeller from "../../Pages/DashBorad/AllSeller/AllSeller"
+import AllBuyer from "../../Pages/DashBorad/AllBuyer/AllBuyer"
 
 
 
@@ -66,7 +68,16 @@ export const router = createBrowserRouter([
             {
                 path: '/deshBorad/addProduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/deshBorad/allSeller',
+                element: <AllSeller></AllSeller>
+            },
+            {
+                path: '/deshBorad/allBuyer',
+                element: <AllBuyer></AllBuyer>
             }
+
         ]
     },
 

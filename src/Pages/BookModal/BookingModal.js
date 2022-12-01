@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const BookingModal = ({ bookings, setBookings }) => {
     const { name, price } = bookings
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleSubmit = event => {
         event.preventDefault()
         const from = event.target
@@ -39,6 +41,7 @@ const BookingModal = ({ bookings, setBookings }) => {
                 setBookings(null)
                 toast.success('Booking confirm')
                 from.reset()
+                navigate('/deshBorad/myOrders')
             })
 
 
