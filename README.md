@@ -24,3 +24,11 @@ Awel Headphones
 
 # toast
 * react hot toast
+
+
+# client-side-link: https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-alow-akter
+
+# server-side-link:https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-alow-akter
+
+# admin email : hogacop934@turuma.com
+# admin passWord: 123456A
