@@ -9,7 +9,7 @@ import Navbar from '../Shared/Navber/Navbar';
 const DeshBoradLayout = () => {
     const { user } = useContext(AuthContext)
     const [allUsers, setAllUser] = useState([])
-    fetch(`http://localhost:5001/allUsers/${user?.email}`)
+    fetch(`https://awel-headphone-server.vercel.app/users/${user?.email}`)
         .then(res => res.json())
         .then(data => setAllUser(data))
 

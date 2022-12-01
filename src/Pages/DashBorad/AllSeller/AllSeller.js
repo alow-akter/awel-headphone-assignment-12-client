@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const AllSeller = () => {
     const [allSeller, setAllSeller] = useState([])
-    fetch('http://localhost:5001/allSeller')
+    fetch('https://awel-headphone-server.vercel.app/allSeller')
         .then(res => res.json())
         .then(data => setAllSeller(data))
     return (
