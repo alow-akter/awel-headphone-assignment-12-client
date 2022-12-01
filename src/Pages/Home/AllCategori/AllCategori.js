@@ -15,7 +15,7 @@ const AllCategori = () => {
 
     return (
         <section>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto'>
                 {
                     data.map(category => <Category key={category._id} category={category}
                         setBookings={setBookings}
